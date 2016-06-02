@@ -1,8 +1,8 @@
 $ Service
-TEST
+Vintage Robot Webshop
 
 $ Scenario
-TEST SCENARIO
+Person buys a vintage Robot
 
 	$ Step
 
