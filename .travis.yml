@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - "6.2"
+  
+before_install:
+  - sudo npm install selenium-standalone@latest -g
+  - sudo selenium-standalone install
+
+before_script:
+  - npm install -g gulp
+  - selenium-standalone start
+
+script:
+  - gulp
