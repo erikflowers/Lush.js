@@ -1,0 +1,126 @@
+<!-- Example of Lush Service Blueprint -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>This is a Lush.js demo for custom styling</title>
+	<!-- ADD STYLES -->
+	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+	<style>
+		/**
+		 * Note how the custom lush elements are used for easy styling
+		 */
+		html {
+		 	font-family: 'Press Start 2P', cursive;
+		 	background-color: #A8FFFF;
+		 	background-attachment: fixed;
+		}
+
+		lush-title {
+			display: inline;
+		}
+
+		lush-column {
+			background-color: transparent;
+		}
+
+		lush-layer {
+			border-radius: 1rem;
+			font-size: .75rem;
+			padding: 1.25rem;
+			line-height: 1rem;
+    		letter-spacing: .02rem;
+		}
+
+		.lush-layer-stepdefinition {
+			background-color: white;
+		}
+		.lush-layer-actor {
+			background-color: orange;
+		}
+		.lush-layer-criticalmoment {
+			background-color: green;
+		}
+		/**
+		 * Checkout the readme file to find all possible lush layers
+		 */
+
+		button {
+		 	font-family: 'Press Start 2P', cursive;
+		 	background-color: orange;
+    		padding: 1rem;
+		}
+
+
+	</style>
+</head>
+<body>
+	<lush-title>This is a styled Lush.js demo</lush-title>
+	<button id="lush-prezi">Start Prezi</button>
+	<textarea>
+		$ Service
+		Example of styled elements
+
+		    $ Scenario
+		    How to style lush elements example
+
+		    	$ Step
+		            $ Step Definition
+		            This is a step that contains all possible options
+
+		            $ Actor
+		            Lorem markdownum, ieiunia! Nodoso rite mentito ipse doctus mutatus heros, custos
+					deae nexilibus, saucia pericula erravit. Et et alis; et vicem nymphae dabitis
+					cervice, tonitruque inpia.
+					Flet iter divitis [undas](http://www.youtube.com/watch?v=MghiBW3r65M).
+		
+					$ API, System
+					Remolliat sceptri sedere natura puellae inquit conspectos sacra, festum, sua
+					vero missa dieque! Aetola **tempore parentes** segetes secura trahit ferre,
+					undas, in! Omnibus vivaci, homo opem quoque: et voveam, epulas. Resolvite nomen
+					et [formam terebat](http://textfromdog.tumblr.com/) infamataeque paene magis,
+					est *animos* stimulos lacrimis, est fert!
+					
+					$ Criticalmoment
+					Iovi retexuit Romana [fac](http://www.billmays.net/): obicit venenata aqua: res!
+					Lympha ara, iussi perque fronde hic at ante **luctus**, e per, sit dum. Figis
+					vidit scelerata inermia placeat.
+
+					$ Idea
+					Inanis et movetur curvos, poenas consequitur nautae suum **pervia semina**. Nil
+					[ore solio](http://twitter.com/search?q=haskell) nunc.
+
+		        $ Step
+		            $ Step Definition
+		            Next step in, this is a step that contains all possible options
+
+					$ Metric
+					Eripuit a dextra? *Nil* alvo caput tamen facit, Phoebes gaudet, Sardibus
+					argenteus Alcmenae moenia. Quam **sunt** traiecit pulvereumque qui possem
+					dictaque miseram in teque arma Thebis.
+
+					$ Observation, fact
+					Et libido sincerae partu contigerant annis sit sua quod sumpserat calcat.
+					Indulgens nefas Samos patitur recentes.
+
+					$ Policy, rule
+					O est curam mora: auras Dorylas! **Tangat pronumque** omne illo adeunt dat tota
+					nec, terga. Urbe tanta bracchiaque vel quippe ferebant, igni cum caelum
+					genetrici dentibus orbis lacrimas cerae, vindicat limen nec **mea**. Ad hanc et
+					*mala*.
+
+					$ Question
+					Praevertunt unus praetemptat erat salictis, obruta, tua odit. Parvoque et
+					iuvenis fero monstri velox.
+		
+					$ Channel
+					Nostri te attulit castra molliter virgine. Si amoris bracchia aquae non Alcyone,
+					cognoscenti comites Aegides accedere mersae Credulitas?
+	</textarea>
+	<!-- ADD JS deps -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="../dist/lush.min.js"></script>
+	<script>markdown2lush( $('textarea') )</script>
+</body>
+
+</html>
