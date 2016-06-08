@@ -7,7 +7,7 @@ before_script:
   - npm install selenium-standalone@latest -g
   - selenium-standalone install
   - npm install -g gulp
-  - nohup selenium-standalone start
+  - nohup selenium-standalone start > selenium.txt 2>&1 </dev/null &
 
 script:
   - gulp
