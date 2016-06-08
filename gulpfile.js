@@ -112,4 +112,4 @@ gulp
  * Default Task
  */
 gulp
-	.task('default', ['eslint', 'dist', 'uglify', 'nightwatch', 'clean'])
+	.task('default', ['eslint', 'dist', 'uglify', 'clean'])
