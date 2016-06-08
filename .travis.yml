@@ -4,8 +4,8 @@ node_js:
   - "6.2"
 
 before_script:
-  - sudo npm install selenium-standalone@latest -g
-  - sudo selenium-standalone install
+  - npm install selenium-standalone@latest -g
+  - selenium-standalone install
   - npm install -g gulp
   - selenium-standalone start
 
