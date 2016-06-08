@@ -14,8 +14,7 @@ var gulp 		= require('gulp'),
 	rename 		= require('gulp-rename'),
 	uglify 		= require('gulp-uglify'),
 	concat 		= require('gulp-concat'),
-	clean 		= require('gulp-clean'),
-	nightwatch 	= require('gulp-nightwatch');
+	clean 		= require('gulp-clean');
 
 
 /**
