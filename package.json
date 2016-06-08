@@ -15,7 +15,7 @@
   },
   "man": "",
   "scripts": {
-    "test": "nightwatch -c tests/nightwatch.json"
+    "test": "node tests/selenium.js"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
@@ -23,7 +23,6 @@
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^2.0.0",
     "gulp-jshint": "^2.0.0",
-    "gulp-nightwatch": "^0.2.9",
     "gulp-protractor": "^2.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.3",
@@ -32,6 +31,7 @@
     "jshint-stylish": "^2.1.0",
     "phantomjs": "^2.1.7",
     "screenfull": "^3.0.0",
+    "selenium-webdriver": "^2.53.2",
     "showdown": "^1.3.0",
     "to-markdown": "^3.0.0"
   }

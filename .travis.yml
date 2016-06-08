@@ -3,11 +3,9 @@ language: node_js
 node_js:
   - "6.2"
 
-before_script:
-  - npm install selenium-standalone@latest -g
-  - selenium-standalone install
-  - npm install -g gulp
-  - nohup selenium-standalone start > selenium.txt 2>&1 </dev/null &
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install phantomjs -y
 
 script:
   - npm test
