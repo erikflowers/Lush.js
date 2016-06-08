@@ -1,7 +1,13 @@
 # Lush.js
+[![Build Status](https://travis-ci.org/designing-experiences/Lush.js.svg?branch=master)](https://travis-ci.org/designing-experiences/Lush.js)
+[![Dep Status](https://david-dm.org/designing-experiences/Lush.js/status.svg)](https://david-dm.org/designing-experiences/Lush.js)
+[![Dev Dep Status](https://david-dm.org/designing-experiences/Lush.js/dev-status.svg)](https://david-dm.org/designing-experiences/Lush.js)<br>
+![NPM](https://nodei.co/npm/Lush.js.png?downloads=true "NPM")
 
 Lush.js is a Javascript framework for online service blueprinting. Lush uses its own HTML tags that you can add to any website or web application.
 Lush.js reads (Lush Markdown)[#Lush-Markdown].
+
+
 
 ### Table of Contents
 - Lush Markdown
