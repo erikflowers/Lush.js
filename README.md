@@ -7,8 +7,6 @@
 Lush.js is a Javascript framework for online service blueprinting. Lush uses its own HTML tags that you can add to any website or web application.
 Lush.js reads (Lush Markdown)[#Lush-Markdown].
 
-
-
 ### Table of Contents
 - Lush Markdown
 - Initiate Lush.js
@@ -42,9 +40,13 @@ Lush.js can be added directly to any web application:
 It will generate the Lush HTML elements that can be used in the browser
 
 ### Using Lush.js
-A Lush canvas can be created by adding the element that contains the markdown.
+Lush has two main functions.
 ```js
-lush( $('#someDivThatContainsTheMarkdown') );
+markdown2lush( STRING_WITH_LUSH_MARKDOWN )
+```
+
+```js
+lush2markdown( STRING_WITH_TITLE, LUSH_ELEMENT_OBJECT ); // example: $('lush')
 ```
 
 ### Using presentation mode
