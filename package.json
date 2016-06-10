@@ -15,9 +15,10 @@
   },
   "man": "",
   "scripts": {
-    "test": "node tests/selenium.js"
+    "test": "mocha"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.0",
@@ -29,6 +30,7 @@
     "html2canvas": "^0.5.0-beta4",
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0",
+    "mocha": "^2.5.3",
     "phantomjs": "^2.1.7",
     "screenfull": "^3.0.0",
     "selenium-webdriver": "^2.53.2",

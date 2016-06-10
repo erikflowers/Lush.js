@@ -8,5 +8,5 @@ before_install:
   - sudo apt-get install phantomjs -y
 
 script:
-  - npm test
   - gulp
+  - npm test
