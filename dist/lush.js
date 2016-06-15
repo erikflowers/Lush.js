@@ -8228,7 +8228,7 @@ module.exports = {
  * @param   {obj}     ELEMENT   Element object
  * @returns {obj}     Returns object with the title and the markdown
  */
-function lush2markdown(title, ELEMENT){
+function lush2markdown(title, scenario, ELEMENT){
 
   console.log(title);
 
@@ -8238,7 +8238,7 @@ function lush2markdown(title, ELEMENT){
   var returner  = '$ Service' + '\n';
       returner += title + '\n\n';
       returner += '$ Scenario' + '\n';
-      returner += 'TEST SCENARIO' + '\n\n';
+      returner += scenario + '\n\n';
 
   ELEMENT
     .find('lush-column')
@@ -8417,11 +8417,7 @@ function markdown2lush(ELEMENT) {
     $(ELEMENT)
       .html('<lush-row></lush-row>');
 
-    $('lush-subtitle') // remove the subtile
-      .remove();
-
-    $('.blueprint_screencapture') // add the subtitle
-      .after('<lush-subtitle">' + i.trim() + '</lush-subtitle>');
+    $('lush-subtitle').text(i.trim());
   }
 
   /**
@@ -8521,6 +8517,7 @@ function markdown2lush(ELEMENT) {
             $('lush').siblings().hide();
             $('lush').parents().siblings().hide();
             $('lush-title').show();
+            $('lush-subtitle').show();
 
             html2canvas( $('body') )
               .then(function(canvas) {
@@ -8850,7 +8847,7 @@ function markdown2lush(ELEMENT) {
         if($('#lush--download-md').length){
           $('#lush--download-md').unbind('click');
           $('#lush--download-md').click(function (){
-            var content = lush2markdown($('lush-title').text(), $('lush'));
+            var content = lush2markdown($('lush-title').text(), $('lush-subtitle').text(), $('lush'));
             var textFile = null;
             var makeTextFile = function (text) {
               var data = new Blob([text], {type: 'text/plain'});
@@ -8904,7 +8901,7 @@ function markdown2lush(ELEMENT) {
         if($('#lush--save').length){
           $('#lush--save').unbind('click');
           $('#lush--save').click(function (){
-            var contents = lush2markdown($('lush-title').text(), $('lush'));
+            var contents = lush2markdown($('lush-title').text(), $('lush-subtitle').text(), $('lush'));
             sessionStorage.setItem('lush--blueprint-title',  contents.title);
             sessionStorage.setItem('lush--blueprint-markdown', contents.markdown);
             alert('SAVED!');
@@ -8995,11 +8992,13 @@ $(document).ready(function () {
   registerLushElement('lush-layer');
   registerLushElement('lush-column');
   registerLushElement('lush-title');
+  registerLushElement('lush-subtitle');
 
   /**
    * Add shadowDOMs
    */
-  setShadowDOM('lush-column', '{ position: relative; float: left; background-color: #f3f3f3; display:block; padding: 0.5rem; margin-left: 0.5rem; width: 26rem }');
-  setShadowDOM('lush-title',  '{ display:block; font-size:2em; -webkit-margin-before:0.67em;-webkit-margin-after:0.67em;-webkit-margin-start:0px;-webkit-margin-end:0px;font-weight:bold;}');
-  setShadowDOM('lush-layer',  '{ display:block; padding:0.25rem; margin-bottom: 0.25rem } ');
+  setShadowDOM('lush-column',  '{ position: relative; float: left; background-color: #f3f3f3; display:block; padding: 0.5rem; margin-left: 0.5rem; width: 26rem }');
+  setShadowDOM('lush-title',   '{ display:block; font-size:2rem; -webkit-margin-before:0.67em;-webkit-margin-after:0.67em;-webkit-margin-start:0px;-webkit-margin-end:0px;font-weight:bold;}');
+  setShadowDOM('lush-subtitle','{ display:block; font-size:1.125rem; -webkit-margin-before:0.67em;-webkit-margin-after:0.67em;-webkit-margin-start:0px;-webkit-margin-end:0px;font-weight:bold;}');
+  setShadowDOM('lush-layer',   '{ display:block; padding:0.25rem; margin-bottom: 0.25rem } ');
 });
