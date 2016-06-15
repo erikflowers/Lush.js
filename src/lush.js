@@ -284,13 +284,16 @@ function markdown2lush(ELEMENT) {
           setTimeout(function(){
             html2canvas(document.querySelector('body'))
               .then(function (canvas) {
+                  /*
                   var link = document.createElement('a');
                       link.download = 'MARKDOWN-IMG-DOWNLOAD-LINK';
                       link.href = canvas.toDataURL();
-                      link.click();
-                  $('lush').show().parentsUntil('body').andSelf().siblings().show();
+                      link.click(); 
                   $('#lush--FileUpload').hide();
                   $('#lush--git-box').hide();
+                  */
+                  window.open(canvas.toDataURL());
+                  $('lush').show().parentsUntil('body').andSelf().siblings().show();
               });
           }, 500); // timeout because there is no callback to html2canvas
         });
