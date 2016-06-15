@@ -8294,6 +8294,31 @@ function lush2markdown(title, ELEMENT){
 }
 
 /**
+ * Translates all urls to dataurls
+ *
+ * @param   {string}  The url to translate
+ * @param   {obj}     The callback
+ * @param   {string}  The output format
+ * @returns {string}  Returns the dataurl of the image
+ */
+function toDataUrl(url, callback, outputFormat){
+  var img = new Image();
+  img.crossOrigin = 'Anonymous';
+  img.onload = function(){
+      var canvas = document.createElement('CANVAS');
+      var ctx = canvas.getContext('2d');
+      var dataURL;
+      canvas.height = this.height;
+      canvas.width = this.width;
+      ctx.drawImage(this, 0, 0);
+      dataURL = canvas.toDataURL(outputFormat);
+      callback(dataURL);
+      canvas = null; 
+  };
+  img.src = url;
+}
+
+/**
  * Lush function for creating a lush element
  * @param   {obj}   ELEMENT   The HTML element
  * @returns {null}  Does not return anything
@@ -8859,6 +8884,17 @@ function markdown2lush(ELEMENT) {
         }
 
       }
+    })
+    .then(function(){
+      $('lush')
+        .find('img')
+        .each(function(){
+          var imgStr = $(this).attr('src');
+          var thisImg = $(this);
+          toDataUrl(imgStr, function(base64Img){
+            thisImg.attr('src', base64Img)
+          }, 'image/png')
+        })
     })
     .then(function (){
       $('lush')
