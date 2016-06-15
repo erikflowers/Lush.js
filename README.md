@@ -47,7 +47,7 @@ markdown2lush( STRING_WITH_LUSH_MARKDOWN )
 ```
 
 ```js
-lush2markdown( STRING_WITH_TITLE, LUSH_ELEMENT_OBJECT ); // example: $('lush')
+lush2markdown( STRING_WITH_TITLE, STRING_WITH_SCENARIO, LUSH_ELEMENT_OBJECT ); // example: $('lush')
 ```
 
 ### Using presentation mode
