@@ -14,6 +14,7 @@ Lush.js reads (Lush Markdown)[#Lush-Markdown].
 - Using presentation mode
 - Using Lush.js options
 - Lush elements
+- Testing Lush
 
 ### Lush Markdown
 Lush Markdown is regular markdown extended with service blueprint terminology. Lush Markdown uses the dollar (`$`) sign to indicate a markdown attributes.
@@ -123,3 +124,10 @@ The following elements are stylable but it would not be adviced to overwrite the
 ```html
 <lush>        <!-- lush canvas element, avoid styling of this element -->
 ```
+
+### Testing Lush
+You can test Lush by running `npm test`.
+
+Lush is tested using [Selenium-webdriver](https://www.npmjs.com/package/selenium-webdriver) and the  [PhantomJS](https://www.npmjs.com/package/phantomjs) driver (for Travis testing). You might want to install these globally (see the links).
+
+The Selenium Webdriver comes with Firefox support, you can change the the driver in the testfile from PhantomJS to Firefox (or install additional drivers [more info](http://www.seleniumhq.org/download/))
