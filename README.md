@@ -114,10 +114,12 @@ Also see the file: examples/styled.html
 When you add Lush.js to your page, a few elements will be added to the shadow dom. You can use these elements directly, but you don't have too.
 
 ```html
-<lush-row>    <!-- lush will create a row that contains all the columns -->
-<lush-column> <!-- a column per step -->
-<lush-layer>  <!-- a layer, example: Metric or Touchpoint -->
-<lush-content><!-- the content of the latyer -->
+<lush-title>   <!-- the title, often the project name -->
+<lush-subtitle><!-- a subtitle, often a scenario -->
+<lush-row>     <!-- lush will create a row that contains all the columns -->
+<lush-column>  <!-- a column per step -->
+<lush-layer>   <!-- a layer, example: Metric or Touchpoint -->
+<lush-content> <!-- the content of the latyer -->
 ```
 
 The following elements are stylable but it would not be adviced to overwrite the shadowdom elements
