@@ -131,3 +131,5 @@ You can test Lush by running `npm test`.
 Lush is tested using [Selenium-webdriver](https://www.npmjs.com/package/selenium-webdriver) and the  [PhantomJS](https://www.npmjs.com/package/phantomjs) driver (for Travis testing). You might want to install these globally (see the links).
 
 The Selenium Webdriver comes with Firefox support, you can change the the driver in the testfile from PhantomJS to Firefox (or install additional drivers [more info](http://www.seleniumhq.org/download/))
+
+Lush's `npm install` installs support for testing in PhantomJS, Chrome and Firefox
