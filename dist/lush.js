@@ -8490,20 +8490,37 @@ function markdown2lush(ELEMENT) {
      * Enable onclick event
      */
     if($('#lush--download-img').length){
+      $('#lush--download-img').unbind('click');
+
       $('#lush--download-img')
         .click(function (){
-          $('lush').show().parentsUntil('body').andSelf().siblings().hide();
+          $(this).prop('disabled', true);
+
+          var hiddenElements = $('body').find(':hidden').not('script');
+          hiddenElements.each(function() {
+            if($(this).css("display") == "none") {
+              $(this).addClass('lush--hidden-task');
+            }
+          });
+          
+          $('lush').siblings().hide();
+          $('lush').parents().siblings().hide();
           $('lush-title').show();
+
           setTimeout(function(){
-            html2canvas(document.querySelector('body'))
-              .then(function (canvas) {
-                  var link = document.createElement('a');
-                      link.download = 'MARKDOWN-IMG-DOWNLOAD-LINK';
-                      link.href = canvas.toDataURL();
-                      link.click();
-                  $('lush').show().parentsUntil('body').andSelf().siblings().show();
-                  $('#lush--FileUpload').hide();
-                  $('#lush--git-box').hide();
+            html2canvas( $('body') )
+              .then(function(canvas) {
+                  if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+                    location.assign(canvas.toDataURL()); // safari, so open same windown
+                  } else {
+                    window.open(canvas.toDataURL());
+                  }
+                  $('lush').siblings().show();
+                  $('lush').parents().siblings().show();
+                  
+                  $('lush').find('.lush--hidden-task').removeClass('lush--hidden-task');
+                  $('.lush--hidden-task').hide();
+                  $('.lush--hidden-task').removeClass('lush--hidden-task');
               });
           }, 500); // timeout because there is no callback to html2canvas
         });
@@ -8792,6 +8809,7 @@ function markdown2lush(ELEMENT) {
        * If presentation button #lush-prezi is available make it clickable
        */
       if($('#lush-prezi').length){
+        $('#lush-prezi').unbind('click');
         $('#lush-prezi')
           .click(function (){
             startPreziMode();
@@ -8808,6 +8826,7 @@ function markdown2lush(ELEMENT) {
          * Set download buttons
          */
         if($('#lush--download-md').length){
+          $('#lush--download-md').unbind('click');
           $('#lush--download-md').click(function (){
             var content = lush2markdown($('lush-title').text(), $('lush'));
             var textFile = null;
@@ -8830,11 +8849,14 @@ function markdown2lush(ELEMENT) {
 
           });
         }
+
         /**
          * Set upload button
          */
         if($('#lush--upload').length){
+          $('#lush--FileUpload').remove();
           $('body').append('<input type="file" name="lush--FileUpload" id="lush--FileUpload" style="display:none">');
+          $('#lush--FileUpload').unbind('click');
           $('#lush--upload').click(function (){
             $('#lush--FileUpload').click();
             var inputElement = document.getElementById('lush--FileUpload');
@@ -8858,6 +8880,7 @@ function markdown2lush(ELEMENT) {
          * Set save button
          */
         if($('#lush--save').length){
+          $('#lush--save').unbind('click');
           $('#lush--save').click(function (){
             var contents = lush2markdown($('lush-title').text(), $('lush'));
             sessionStorage.setItem('lush--blueprint-title',  contents.title);
@@ -8869,6 +8892,7 @@ function markdown2lush(ELEMENT) {
          * Set load button
          */
         if($('#lush--load').length){
+          $('#lush--load').unbind('click');
           $('#lush--load').click(function (){
             if(sessionStorage.getItem('lush--blueprint-markdown') !== null){
 
