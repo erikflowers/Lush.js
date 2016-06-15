@@ -8230,11 +8230,13 @@ module.exports = {
  */
 function lush2markdown(title, ELEMENT){
 
+  console.log(title);
+
   /**
    * Add the service
    */
   var returner  = '$ Service' + '\n';
-      returner += 'TEST' + '\n\n';
+      returner += title + '\n\n';
       returner += '$ Scenario' + '\n';
       returner += 'TEST SCENARIO' + '\n\n';
 
@@ -8496,18 +8498,30 @@ function markdown2lush(ELEMENT) {
         .click(function (){
           $(this).prop('disabled', true);
 
-          var hiddenElements = $('body').find(':hidden').not('script');
-          hiddenElements.each(function() {
-            if($(this).css("display") == "none") {
-              $(this).addClass('lush--hidden-task');
-            }
-          });
-          
-          $('lush').siblings().hide();
-          $('lush').parents().siblings().hide();
-          $('lush-title').show();
+          $('lush')
+            .find('img')
+            .each(function(){
+              var imgStr = $(this).attr('src');
+              var thisImg = $(this);
+              toDataUrl(imgStr, function(base64Img){
+                thisImg.attr('src', base64Img);
+                thisImg.attr('data-lush-original', imgStr);
+              }, 'image/png');
+            });
 
           setTimeout(function(){
+
+            var hiddenElements = $('body').find(':hidden').not('script');
+            hiddenElements.each(function() {
+              if($(this).css("display") == "none") {
+                $(this).addClass('lush--hidden-task');
+              }
+            });
+            
+            $('lush').siblings().hide();
+            $('lush').parents().siblings().hide();
+            $('lush-title').show();
+
             html2canvas( $('body') )
               .then(function(canvas) {
                   if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -8521,8 +8535,16 @@ function markdown2lush(ELEMENT) {
                   $('lush').find('.lush--hidden-task').removeClass('lush--hidden-task');
                   $('.lush--hidden-task').hide();
                   $('.lush--hidden-task').removeClass('lush--hidden-task');
+
+                  $('lush')
+                    .find('img')
+                    .each(function(){
+                      var imgStr = $(this).attr('data-lush-original');
+                      $(this).attr('src', imgStr);
+                    });
+
               });
-          }, 500); // timeout because there is no callback to html2canvas
+          }, 2000); // timeout because there is no callback to html2canvas
         });
     }
   }
@@ -8908,17 +8930,6 @@ function markdown2lush(ELEMENT) {
         }
 
       }
-    })
-    .then(function(){
-      $('lush')
-        .find('img')
-        .each(function(){
-          var imgStr = $(this).attr('src');
-          var thisImg = $(this);
-          toDataUrl(imgStr, function(base64Img){
-            thisImg.attr('src', base64Img)
-          }, 'image/png')
-        })
     })
     .then(function (){
       $('lush')
