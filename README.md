@@ -20,18 +20,18 @@ Lush.js reads (Lush Markdown)[#Lush-Markdown].
 Lush Markdown is regular markdown extended with service blueprint terminology. Lush Markdown uses the dollar (`$`) sign to indicate a markdown attributes.
 
 Lush Markdown attributes:
-- `$ Project` = Project name, only first one provided will be used
-- `$ Scenario` = Creates Swiminglane
-- `$ Step Definition`	= A plain words description of what happens in the step
-- `$ Channel` = The what of the step's interaction
-- `$ Actor` = The journey and/or support actors of the step
-- `$ API, System` = What makes this step "go". APIs, hardware, processes, systems
-- `$ Observation, Fact`	= Statements that are important to note
-- `$ Policy, Rule` = Policies that dictate why something is a certain way
-- `$ Metric` = Metrics that help you illuminate the step's context or importance
-- `$ Critical Moment` = Sources of pain or experience breakdown
-- `$ Question` = Questions that need to be asked
-- `$ Idea` = Ah-ha realizations on things to improve or fix for broader impact
+* ``$ Service`` - Name of the service. Only the first one will be used.
+* ``$ Scenario`` - A plain words descriptor of what happens in the step. This creates a new swimming lane.
+* ``$ Step Definition`` - A plain words descriptor of what happens in the step.
+* ``$ Channel`` - The channels involved in  the step.
+* ``$ Actor`` - The journeyer, support actors  of the step.
+* ``$ API, System`` - What makes this step “go”. APIs, Systems, Processes.
+* ``$ Observation, Fact`` - Statements or facts that are  important to note.
+* ``$ Policy, Rule`` - Rules or policies that dictate why things are a certain way.
+* ``$ Metric`` - Data that helps measure &  learn about the step / scenario.
+* ``$ Critical Moment`` - Sources of pain or experience breakdown.
+* ``$ Question`` - Questions that need to be followed up on.
+* ``$ Idea`` - Ah-ha realisations to improve the service experience.
 
 ### Initiate Lush.js
 Lush.js can be added directly to any web application:
