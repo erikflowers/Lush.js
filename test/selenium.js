@@ -18,6 +18,7 @@ const webdriver = require('selenium-webdriver'),
  * Include the driver for Phantom JS so it can run on Travis
  */
 const driver = new webdriver.Builder().forBrowser('phantomjs').build();
+//const driver = new webdriver.Builder().forBrowser('chrome').build();
 
 /**
  * Require CHAI
