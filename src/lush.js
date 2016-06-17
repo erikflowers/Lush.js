@@ -279,7 +279,7 @@ function markdown2lush(ELEMENT) {
 
       $('#lush--download-img')
         .click(function (){
-          $(this).prop('disabled', true);
+          $(this).hide();
 
           $('lush')
             .find('img')
@@ -326,6 +326,8 @@ function markdown2lush(ELEMENT) {
                       var imgStr = $(this).attr('data-lush-original');
                       $(this).attr('src', imgStr);
                     });
+
+                  $('#lush--download-img').show();
 
               });
           }, 2000); // timeout because there is no callback to html2canvas
