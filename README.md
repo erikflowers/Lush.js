@@ -27,11 +27,11 @@ Lush Markdown attributes:
 * ``$ Actor`` - The journeyer, support actors  of the step.
 * ``$ API, System`` - What makes this step “go”. APIs, Systems, Processes.
 * ``$ Observation, Fact`` - Statements or facts that are  important to note.
-* ``$ Policy, Rule`` - Rules or policies that dictate why things are a certain way.
+* ``$ Policy, Rule`` - Rules or policies that dictate  why things are a certain way.
 * ``$ Metric`` - Data that helps measure &  learn about the step / scenario.
-* ``$ Critical Moment`` - Sources of pain or experience breakdown.
+* ``$ Critical Moment`` - Sources of pain or experience  breakdown.
 * ``$ Question`` - Questions that need to be followed up on.
-* ``$ Idea`` - Ah-ha realisations to improve the service experience.
+* ``$ Idea`` - Ah-ha realisations to  improve the service experience.
 
 ### Initiate Lush.js
 Lush.js can be added directly to any web application:
